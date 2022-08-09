@@ -1,0 +1,8 @@
+{% extends "user_app/base.html" %}
+{% block content %}
+<div class="conteiner">
+    {% csrf_token %}
+    {{ login_form }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+{% endblock  %}

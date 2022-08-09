@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,17 +12,26 @@
     <div>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="{% url 'user_app:home' %}">Navbar</a>
                 <ul class="nav">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Active</a>
+                      <a class="nav-link active" aria-current="page" href="{% url 'user_app:home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
+                      <a class="nav-link" href="{% url 'user_app:register' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
+                      {% if usre.is_authenticated %}
+                      <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+                    </li>
+                    {% else%}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+                    </li>
+                    {% endif %}
                   </ul>
               </div>
           </nav>
