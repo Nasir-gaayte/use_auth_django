@@ -1,8 +1,9 @@
 {% extends "user_app/base.html" %}
 {% block content %}
+{% load crispy_forms_tags %}
 <div class="conteiner">
     {% csrf_token %}
-    {{ login_form }}
+    {{ login_form|crispy }}
     <button type="submit" class="btn btn-primary">Submit</button>
 </div>
 {% endblock  %}

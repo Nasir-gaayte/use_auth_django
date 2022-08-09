@@ -40,7 +40,8 @@ def login_req(request):
         else:
             messages.error(request,"sorry????")
     form = AuthenticationForm()
-    return render(request,'user_app/login.html',{'login_form':form})                 
+    
+    return render(request,'user_app/login.html',{'login_form':form, 'msg':messages})                 
 
 
 

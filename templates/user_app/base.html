@@ -27,11 +27,16 @@
                     <li class="nav-item">
                       <a class="nav-link" href="#">Welcome, {{user.username}}</a>
                     </li>
-                    {% else%}
+                    {% else %}
                     <li class="nav-item">
                       <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
                     </li>
                     {% endif %}
+                    <li class="nav-item">
+                      {% csrf_token %}
+                      {{ meg.as_p }}
+                      <a class="nav-link" href=""></a>
+                    </li>
                   </ul>
               </div>
           </nav>
